@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './Navbar';
+import Homescreen from './screens/Homescreen';
+import Cart from './screens/Cartscr';
+import Login from './screens/Loginscr';
+import Signup from './screens/Signupscr';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useNavigate
+} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+      <Navbar></Navbar>
+
+             <BrowserRouter>
+             
+             <Routes>
+             <Route  path="/" exact element={<Homescreen></Homescreen>} ></Route>  
+             <Route  path="/cart" exact element={<Cart></Cart>}></Route>
+             <Route path="/Login" exact element={<Login></Login>}></Route>
+             <Route path="/Signup" exact element={<Signup></Signup>}></Route>
+             </Routes>
+
+             </BrowserRouter>
+
+      
     </div>
   );
 }

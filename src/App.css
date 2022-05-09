@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-nav{
+  margin-left: auto;
+}
+h1{
+  font-size: 20px;
+}
+
+select{
+  box-shadow: none;
+  border-color:black ;
+}
