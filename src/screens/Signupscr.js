@@ -22,7 +22,7 @@ const {error,loading,success}=registerState;
 
 const Register=()=>{
 
-    if(password !=confirmpassword){
+    if(password !==confirmpassword){
         alert("password not Matched")
     }
     else{

@@ -25,7 +25,7 @@ const {loading,error}=UserState;
 
 
 
-    function login(){
+    const  login=()=>{
 
       const user={
         email,
@@ -55,10 +55,10 @@ const {loading,error}=UserState;
           <input  className="form-control" type="text" placeholder="email" value={email}
            onChange={(e)=>{setemail(e.target.value)}} required></input>
           
-          <input   className="form-control" type="password" placeholder="password" value={password} 
+          <input   className="form-control " type="password" placeholder="password" value={password} 
           onChange={(e)=>{setpassword(e.target.value)}} required></input>
 
-            <button   className="btn mt-1" onClick={login()}>LOGIN</button>
+            <button   className="btn mt-1" onClick={login}>LOGIN</button>
        </div>
             <a href="/Signup" style={{color:"black"}}> Click here to Signup</a>
 

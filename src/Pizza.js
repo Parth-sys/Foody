@@ -5,15 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 import{useDispatch,useSelector} from 'react-redux';
 
 import { addToCart } from "./actions/Cartaction";
-
-
+import Toast from "./screens/Toast"
+import {toast} from 'react-toastify';
 function Pizza({ pizza}) {
 
 
 
     const [varient, setvarient] = useState('small');
     const [quantity, setquantity] = useState(1);
-
+      const [notify,setnotify]=useState(); 
     const [show,setshow]=useState(false)
    
 
@@ -25,15 +25,24 @@ function Pizza({ pizza}) {
 
 // cartItem dispatch
 const addtocart=()=>{
-
-dispatch(addToCart(pizza,quantity,varient))
+    dispatch(addToCart(pizza,quantity,varient))
+    toast("added to cart",{
+        position: "top-right",
+     autoClose: 5000,
+    hideProgressBar: false,
+     closeOnClick: true,
+     pauseOnHover: false,
+     draggable: true,
+    progress: undefined,
+     theme: "dark"
+    });
 
 }
 
 
     return (
-        <div className=" shadow-lg p-3 mb-5 bg-body rounded " style={{ margin: '50px' }}  >
-              <div onClick={handleshow}>
+        <div className=" shadow-lg p-3 mb-5 bg-body rounded " style={{ margin: '50px' ,backgroundColor:"skyblue"}}   >
+              <div onClick={handleshow} >
             <h1>{pizza.name}</h1>
             <img src={pizza.image} alt="name" className="img-fluid" style={{ height: '200px', width: '200px' }}></img>
               </div>
@@ -44,7 +53,7 @@ dispatch(addToCart(pizza,quantity,varient))
                     <p>Varients</p>
                     <select className="form-control" value={varient} onChange={(e) => setvarient(e.target.value)} >
                         {pizza.varients.map((option) => {
-                            return <option value={option}>{option}</option>
+                            return <option value={option}>{option} </option>
                         })}
                     </select>
 
@@ -93,6 +102,9 @@ dispatch(addToCart(pizza,quantity,varient))
                    
                 </Modal.Footer>
             </Modal>
+
+                  <Toast></Toast>
+
 
         </div>
     )

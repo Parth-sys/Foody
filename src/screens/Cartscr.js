@@ -3,6 +3,7 @@ import {useSelector,useDispatch} from 'react-redux';
 
 import { addToCart } from "../actions/Cartaction";
 import {deleteFromCart} from "../actions/Cartaction"
+import Checkout from "../CheckOut";
 
 function Cart(){
 
@@ -57,7 +58,7 @@ function Cart(){
 
                      <div className="w-100 m-1">
 
-                        <i className="fa fa-trash" aria-hidden="true" onClick={()=>dispatch(deleteFromCart(m))} ></i>
+                        <i className="fa fa-trash" aria-hidden="true" onClick={()=>dispatch(deleteFromCart(m.id))} ></i>
 
                      </div>
 
@@ -79,7 +80,7 @@ function Cart(){
 
              <div className="col-md-4 shadow-sm bg-body rounded">
                   <h3>Total :{Total}</h3>
-                  <button className="btn">Pay Now </button>
+                 <Checkout subtotal={Total} cartItem={cartItems} ></Checkout>
              </div>
 
 
